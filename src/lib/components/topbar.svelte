@@ -1,8 +1,13 @@
 <script>
   import '../../app.css'
+  import { redirect } from '@sveltejs/kit';
   let isProfileOpen = false;
   let isSideBar = false;
-  
+  function handleSignOut(){
+    
+//    alert (document.cookie())
+  }
+
 </script>
 
 <div class="min-h-full z-50">
@@ -90,12 +95,12 @@
                                       tabindex="-1"
                                       id="user-menu-item-1">Settings</a
                                   >
-                                  <a
-                                      href="#"
+                                  <button
+                                    on:click={() => handleSignOut()}
                                       class="block px-4 py-2 text-sm text-gray-700"
                                       role="menuitem"
                                       tabindex="-1"
-                                      id="user-menu-item-2">Sign out</a
+                                      id="user-menu-item-2">Sign out</button
                                   >
                               </div>
                           {/if}

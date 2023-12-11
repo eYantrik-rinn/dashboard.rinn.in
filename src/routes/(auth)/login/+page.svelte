@@ -1,8 +1,15 @@
 <script>
 	import "../../../app.css";
 	export let form
+	import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
 	console.log(form?.notFount);
 	console.log(form?.invalid);
+
+	if ($page.data.user){
+		goto(`/${$page.data.user.role}`)
+	}
+
 </script>
 
 <svelte:head>
