@@ -1,11 +1,17 @@
 <script>
 	import { goto } from "$app/navigation";
-	import "./app.css";
+    import { onMount } from "svelte";
+	import "../app.css";
 	function handleHome(event) {
-		goto("/");
+		onMount(async () => {
+			goto("/");
+		});
 	}
 	function handleContact(event) {
-		goto("https://rinn.in/about-us");
+		onMount(async () => {
+			goto("https://rinn.in/about-us");
+
+		});
 	}
 </script>
 

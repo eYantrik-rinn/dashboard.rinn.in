@@ -48,7 +48,7 @@ export const actions = {
 				maxAge: 60 * 60 * 24 * 30,
 			})
 			// redirect the user
-			throw redirect(302, '/superuser')
+			throw redirect(302, '/superUser')
 		}
 		const admin = await admin_data.findOne({ username: username });
 		if (admin) {
