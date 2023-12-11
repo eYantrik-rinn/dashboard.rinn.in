@@ -1,24 +1,16 @@
 <script>
 	import "../../../app.css";
-	export let form
+	export let form;
 	import { page } from "$app/stores";
-    import { goto } from "$app/navigation";
-	console.log(form?.notFount);
-	console.log(form?.invalid);
-
-	if ($page.data.user){
-		goto(`/${$page.data.user.role}`)
+	import { goto } from "$app/navigation";
+	if ($page.data.user) {
+		goto(`/${$page.data.user.role}`);
 	}
-
 </script>
 
 <svelte:head>
 	<title>Signin</title>
 </svelte:head>
-{#if form?.invalid}
-<!-- <p class="text-red-200">username & Password Required</p> -->
-	
-{/if}
 
 <form action="" method="post">
 	<div class="lg:flex">
@@ -43,7 +35,7 @@
 									fill: none;
 									stroke: currentColor;
 									stroke-width: 20;
-									stroke-linecap: round;	
+									stroke-linecap: round;
 									stroke-miterlimit: 3;
 								}
 							</style>
@@ -65,76 +57,96 @@
 					</div>
 				</div>
 			</div>
-			
-				<div
-					class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl"
-				>
-					<h2
-						class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
+
+			<div
+				class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl"
+			>
+				<h2
+					class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
 						xl:text-bold"
-					>
-						Log in
-					</h2>
-					<div class="mt-12">
-						
-							<div>
-								<div
-									class="text-sm font-bold text-gray-700 tracking-wide"
-								>
-									Email Address
-								</div>
-								<input
-									class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-									type="email"
-									placeholder="Enter your email"
-									name="username"
-								/>
+				>
+					Log in
+				</h2>
+				<div class="mt-12">
+					<div>
+						<div
+							class="text-sm font-bold text-gray-700 tracking-wide"
+						>
+							Email Address
+						</div>
+						<input
+							class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+							type="email"
+							placeholder="Enter your email"
+							name="username"
+						/>
+						{#if form?.invalidUsername}
+							<span
+								class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+							>
+								Please fill out username !
+							</span>
+						{/if}
+					</div>
+					<div class="mt-8">
+						<div class="flex justify-between items-center">
+							<div
+								class="text-sm font-bold text-gray-700 tracking-wide"
+							>
+								Password
 							</div>
-							<div class="mt-8">
-								<div class="flex justify-between items-center">
-									<div
-										class="text-sm font-bold text-gray-700 tracking-wide"
-									>
-										Password
-									</div>
-									<div>
-										<!-- <a
+							<div>
+								<!-- <a
 										class="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
 											cursor-pointer"
 									>
 										Forgot Password?
 									</a> -->
-									</div>
-								</div>
-								<input
-									class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-									type="password"
-									name="password"
-									placeholder="Enter your password"
-								/>
 							</div>
-							<div class="mt-10">
-								<button
-									type="submit"
-									class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+						</div>
+						<input
+							class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+							type="password"
+							name="password"
+							placeholder="Enter your password"
+						/>
+						{#if form?.invalidPassword}
+							<span
+								class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+							>
+							please fill out password !
+							</span>
+						{/if}
+						
+						{#if form?.notFound}
+							<span
+								class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+							>
+							You have entered the wrong credentials. !
+							</span>
+						{/if}
+					</div>
+					<div class="mt-10">
+						<button
+							type="submit"
+							class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
 									font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
 									shadow-lg"
-								>
-									Log In
-								</button>
-							</div>
-						
-						<div
-							class="mt-12 text-sm font-display font-semibold text-gray-700 text-center"
 						>
-							<!-- Don't have an account ? <a
+							Log In
+						</button>
+					</div>
+
+					<div
+						class="mt-12 text-sm font-display font-semibold text-gray-700 text-center"
+					>
+						<!-- Don't have an account ? <a
 							class="cursor-pointer text-indigo-600 hover:text-indigo-800"
 							>Sign up</a
 						> -->
-						</div>
 					</div>
 				</div>
-			
+			</div>
 		</div>
 		<div
 			class="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen"
@@ -150,7 +162,12 @@
 					viewBox="0 0 528.71721 699.76785"
 				>
 					<title>Login</title>
-					<rect y="17.06342" width="444" height="657" fill="#535461" />
+					<rect
+						y="17.06342"
+						width="444"
+						height="657"
+						fill="#535461"
+					/>
 					<polygon
 						points="323 691.063 0 674.063 0 17.063 323 0.063 323 691.063"
 						fill="#7f9cf5"
@@ -269,7 +286,12 @@
 						transform="translate(-335.6414 -100.11607)"
 						fill="#2f2e41"
 					/>
-					<circle cx="465.21721" cy="105.82341" r="34" fill="#ffb8b8" />
+					<circle
+						cx="465.21721"
+						cy="105.82341"
+						r="34"
+						fill="#ffb8b8"
+					/>
 					<path
 						d="M820.3586,253.43948l-10.5,10.5s-32,12-47,0c0,0,5.5-11.5,5.5-10.5s-43.5,7.5-47.5,25.5,3,49,3,49-28,132-17,135,114,28,113,9,8-97,8-97l35-67s-5-22-17-29S820.3586,253.43948,820.3586,253.43948Z"
 						transform="translate(-335.6414 -100.11607)"

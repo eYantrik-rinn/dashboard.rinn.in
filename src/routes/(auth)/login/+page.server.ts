@@ -22,6 +22,13 @@ export const actions = {
 		) {
 			return fail(400, { invalid: true })
 		}
+		if (!username) {
+			return fail(400, { invalidUsername: true })
+		}
+		if (!password) {
+			return fail(400, { invalidPassword: true })
+		}
+		
 		const superuser = await super_user.findOne({ username: username });
 		if (superuser) {
 			const superuserPassword = await bcrypt.compare(password, superuser.passwordHash);
@@ -180,7 +187,7 @@ export const actions = {
 			}
 		}
 		return {
-			notFount: "Credentials not matched"
+			notFound: "Credentials not matched"
 		}
 	},
 }
