@@ -1,11 +1,17 @@
 <script>
 	import "../../../app.css";
+	export let form
+	console.log(form?.notFount);
+	console.log(form?.invalid);
 </script>
 
 <svelte:head>
 	<title>Signin</title>
 </svelte:head>
-
+{#if form?.invalid}
+<!-- <p class="text-red-200">username & Password Required</p> -->
+	
+{/if}
 
 <form action="" method="post">
 	<div class="lg:flex">
