@@ -2,12 +2,12 @@
 	import { goto } from "$app/navigation";
     import { onMount } from "svelte";
 	import "../app.css";
-	function handleHome(event) {
+	function handleHome() {
 		onMount(async () => {
 			goto("/");
 		});
 	}
-	function handleContact(event) {
+	function handleContact() {
 		onMount(async () => {
 			goto("https://rinn.in/about-us");
 
@@ -28,13 +28,13 @@
 					have been moved or deleted.
 				</p>
 				<button
-					on:click={(event) => handleHome()}
+					on:click={() => handleHome()}
 					class="bg-gradient-to-r from-green-300 to-green-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6"
 				>
 					HOME
 				</button>
 				<button
-					on:click={(event) => handleContact()}
+					on:click={() => handleContact()}
 					class="bg-gradient-to-r from-yellow-300 to-yellow-500 hover:from-red-500 hover:to-red-500 text-white font-semibold px-6 py-3 rounded-md"
 				>
 					Contact Us

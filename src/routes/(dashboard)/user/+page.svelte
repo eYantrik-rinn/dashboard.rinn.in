@@ -7,9 +7,10 @@
 </script>
 
 <main>
-    {#if $page.data.user}
-        <Topbar />
+    {#if $page.data.user }
+
         <SideBar />
+
         {:else}
         <Spinner />
     {/if}

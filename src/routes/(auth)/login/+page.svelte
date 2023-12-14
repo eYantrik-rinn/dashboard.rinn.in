@@ -3,9 +3,18 @@
 	export let form;
 	import { page } from "$app/stores";
 	import { goto } from "$app/navigation";
+	import { onMount } from "svelte";
 	if ($page.data.user) {
 		goto(`/${$page.data.user.role}`);
 	}
+	let card;
+	onMount(async () => {
+		const res = await fetch("https://dummyjson.com/posts");
+		const data = await res.json();
+		card = await data.posts[Math.floor(Math.random() * 10)];
+		console.log(card);
+	});
+	console.log();
 </script>
 
 <svelte:head>
@@ -114,15 +123,15 @@
 							<span
 								class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
 							>
-							please fill out password !
+								please fill out password !
 							</span>
 						{/if}
-						
+
 						{#if form?.notFound}
 							<span
 								class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
 							>
-							You have entered the wrong credentials. !
+								You have entered the wrong credentials. !
 							</span>
 						{/if}
 					</div>
@@ -149,12 +158,42 @@
 			</div>
 		</div>
 		<div
-			class="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen"
+			class=" lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen"
 		>
 			<div
-				class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer"
+				class="relative transform duration-200 hover:scale-101 cursor-pointer text-center mx-auto"
 			>
-				<svg
+				<img
+					src="/img/document-closeup.jpg"
+					alt=""
+					class="opacity-20"
+				/>
+				{#if card}
+					<div class="absolute  top-2 lg:top-10 xl:top-1/4 left-1/2">
+						<h1
+							class=" text-xl md:text-3xl font-medium font-serif text-indigo-600 -translate-x-1/2 -translate-y-1/2"
+						>
+							{card.title}
+						</h1>
+						<p class="  text-xl -translate-x-1/2 text-gray-600">
+							{card.body}
+						</p>
+						<button
+							class="bg-indigo-600 -translate-x-1/2 text-white py-2 px-6 rounded-full text-xl mt-6"
+							>Get Started</button
+						>
+					</div>
+				{/if}
+
+				<!-- <img src="/img/document-closeup.jpg" alt="" />
+				<h1
+					class=""
+				>
+					
+				</h1>
+
+				 -->
+				<!-- <svg
 					class="w-5/6 mx-auto"
 					xmlns="http://www.w3.org/2000/svg"
 					id="f080dbb7-9b2b-439b-a118-60b91c514f72"
@@ -317,7 +356,7 @@
 						transform="translate(-335.6414 -100.11607)"
 						fill="#2f2e41"
 					/>
-				</svg>
+				</svg> -->
 			</div>
 		</div>
 	</div>
