@@ -1,5 +1,5 @@
 <script>
-    import BrokerSidebar from "$lib/components/BrokerSideBar.svelte";
+    // import BrokerSidebar from '$lib/components/brokerSidebar.svelte';
     import SideBar from "$lib/components/sideBar.svelte";
     import "../../../app.css";
     import Spinner from "$lib/components/spinner.svelte";
@@ -8,7 +8,7 @@
 
 <main>
     {#if $page.data.user.role === 'broker'}
-        <BrokerSidebar />
+        <!-- <BrokerSidebar /> -->
         <slot ></slot>
     {:else if $page.data.user.role === 'admin' }
     <SideBar />
