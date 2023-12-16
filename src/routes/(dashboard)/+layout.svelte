@@ -10,9 +10,9 @@
 		});
        
     }else{
-        onMount(async () => {
-            goto(`${$page.data.user.role}`)
-		});
+        // onMount(async () => {
+        //     goto(`${$page.data.user.role}`)
+		// });
     }
 </script>
 <!-- <main>

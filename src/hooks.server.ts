@@ -51,7 +51,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// if `user` exists set `events.local`
 	if (broker) {
 		event.locals.user = {
-			name: broker.username,
+			name: broker.Name,
 			role: "broker",
 		}
 	}
@@ -66,7 +66,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 			role: "user",
 		}
 	}
-
+	console.log(event.locals.user.name,event.locals.user.role);
 	// load page as normal
 	return await resolve(event)
 }

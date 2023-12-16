@@ -3,9 +3,9 @@
 	import { goto } from '$app/navigation';
     import { page } from '$app/stores';
 	onMount(() => {
-		if ($page.data.user) {
-			goto(`/${$page.data.user.role}`);
-		}
+		// if ($page.data.user) {
+		// 	goto(`/${$page.data.user.role}`);
+		// }
 	});
 </script>
 

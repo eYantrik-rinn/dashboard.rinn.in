@@ -1,7 +1,4 @@
 <script>
-
-    import { page } from "$app/stores";
-
 </script>
 
 <svelte:head>
@@ -143,9 +140,9 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bxs-magic-wand"></i>
+                        <i class='bx bx-group'></i> 
                     </span>
-                    <span class="navlink">Applied Loan</span>
+                    <span class="navlink">Your Leads</span>
                 </a>
             </li>
             <!-- End -->
@@ -153,17 +150,48 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-loader-circle"></i>
+                        <i class="bx bx-user-circle"></i>
                     </span>
-                    <span class="navlink">Loan Status</span>
+                    <span class="navlink">Active Leads </span>
+                </a>
+            </li>
+            <li class="nav_link submenu_item">
+                <a href="/newLead" class="nav_link">
+                    <span class="navlink_icon">
+                        <i class='bx bx-link-alt'></i>
+                    </span>
+                    <span class="navlink">New Lead</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="menu_items">
+            <div class="menu_title menu_editor"></div>
+            <!-- duplicate these li tag if you want to add or remove navlink only -->
+            <!-- Start -->
+            <li class="nav_link submenu_item">
+                <a href="#" class="nav_link">
+                    <span class="navlink_icon">
+                        <i class='bx bx-rupee'></i>
+                    </span>
+                    <span class="navlink">Payouts</span>
+                </a>
+            </li>
+            <!-- End -->
+
+            <li class="nav_link submenu_item">
+                <a href="#" class="nav_link">
+                    <span class="navlink_icon">
+                        <i class='bx bx-book'></i>
+                    </span>
+                    <span class="navlink">Passbook</span>
                 </a>
             </li>
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-filter"></i>
+                        <i class='bx bxs-bank'></i>
                     </span>
-                    <span class="navlink">Loan History</span>
+                    <span class="navlink">Manage Bank </span>
                 </a>
             </li>
         </ul>
@@ -172,7 +200,7 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-flag"></i>
+                        <i class='bx bxs-user-account'></i>
                     </span>
                     <span class="navlink">Profile</span>
                 </a>
@@ -180,7 +208,7 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
+                        <i class="bx bx-cog "></i>
                     </span>
                     <span class="navlink">Profile Setting</span>
                 </a>
@@ -201,7 +229,7 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
+                        <i class='bx bx-question-mark'></i>
                     </span>
                     <span class="navlink">FAQ</span>
                 </a>
@@ -209,25 +237,12 @@
             <li class="nav_link submenu_item">
                 <a href="#" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
+                        <i class='bx bxs-file'></i>
                     </span>
                     <span class="navlink">Terms & Conditions</span>
                 </a>
             </li>
-            {#if $page.data.user.role === 'admin'}
-              
-            
-            <li class="nav_link submenu_item">
-                <a href="/BKregistration" class="nav_link">
-                    <span class="navlink_icon">
-                      <i class='bx bx-user-plus'></i>
-                       
-                    </span>
-                    <span class="navlink">Broker Registration</span>
-                </a>
-            </li>
-            
-            {/if}
+           
         </ul>
     </div>
 </aside>

@@ -123,7 +123,7 @@ export const actions = {
 			}
 		}
 
-		const broker = await broker_data.findOne({ username: username });
+		const broker = await broker_data.findOne({ Email: username });
 		if (broker) {
 			const brokerPassword = await bcrypt.compare(password, broker.passwordHash);
 			if (brokerPassword) {
@@ -131,7 +131,7 @@ export const actions = {
 
 				const userAuthToken = crypto.randomUUID();
 				await broker_data.updateOne(
-					{ username: username },
+					{ Email: username },
 					{
 						$set: {
 							userAuthToken: userAuthToken,
