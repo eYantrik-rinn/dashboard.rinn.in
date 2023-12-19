@@ -1,4 +1,5 @@
 <script>
+   
     export let form;
     let other = false;
     function handleBank(event) {

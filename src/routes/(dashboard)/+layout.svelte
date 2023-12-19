@@ -4,6 +4,7 @@
     import { page } from "$app/stores";
     import { onMount } from 'svelte';
     import Spinner from "$lib/components/spinner.svelte";
+ 
     if(!$page.data.user){
         onMount(async () => {
 			goto("/");

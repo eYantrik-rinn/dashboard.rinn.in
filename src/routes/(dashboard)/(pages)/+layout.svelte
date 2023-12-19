@@ -1,9 +1,8 @@
 <script>
-    // import BrokerSidebar from '$lib/components/brokerSidebar.svelte';
+    import BrokerSidebar from '$lib/components/brokerSidebar.svelte';
     import SideBar from "$lib/components/sideBar.svelte";
     import "../../../app.css";
     import Spinner from "$lib/components/spinner.svelte";
-    import BrokerSidebar from '$lib/components/brokerSidebar.svelte'
     import { page } from "$app/stores";
 </script>
 

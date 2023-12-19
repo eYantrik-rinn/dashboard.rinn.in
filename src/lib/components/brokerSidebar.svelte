@@ -134,7 +134,7 @@
             <!-- duplicate these li tag if you want to add or remove navlink only -->
             <!-- Start -->
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/leads" class="nav_link">
                     <span class="navlink_icon">
                         <i class='bx bx-group'></i> 
                     </span>
@@ -144,7 +144,7 @@
             <!-- End -->
 
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/activeLead" class="nav_link">
                     <span class="navlink_icon">
                         <i class="bx bx-user-circle"></i>
                     </span>
@@ -165,7 +165,7 @@
             <!-- duplicate these li tag if you want to add or remove navlink only -->
             <!-- Start -->
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/payout" class="nav_link">
                     <span class="navlink_icon">
                         <i class='bx bx-rupee'></i>
                     </span>
@@ -175,7 +175,7 @@
             <!-- End -->
 
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/passbook" class="nav_link">
                     <span class="navlink_icon">
                         <i class='bx bx-book'></i>
                     </span>
@@ -183,7 +183,7 @@
                 </a>
             </li>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/bank" class="nav_link">
                     <span class="navlink_icon">
                         <i class='bx bxs-bank'></i>
                     </span>
@@ -194,7 +194,7 @@
         <ul class="menu_items">
             <div class="menu_title menu_setting"></div>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/profile" class="nav_link">
                     <span class="navlink_icon">
                         <i class='bx bxs-user-account'></i>
                     </span>
@@ -202,7 +202,7 @@
                 </a>
             </li>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/profileSetting" class="nav_link">
                     <span class="navlink_icon">
                         <i class="bx bx-cog "></i>
                     </span>
