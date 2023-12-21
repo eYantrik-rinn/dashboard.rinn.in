@@ -11,6 +11,8 @@ export const actions = {
         const loanAmmount = data.get("loanAmmount");
         const preferredBank = data.get("preferredBank");
         const otherBank = data.get("otherBank");
+        const fromBank = data.get('fromBank')
+        
         let BankName;
         if (preferredBank !== 'other'){
             BankName = preferredBank;
@@ -28,6 +30,7 @@ export const actions = {
                     loanType:loanType,
                     loanAmmount:loanAmmount,
                     Bank:BankName,
+                    fromBank:fromBank,
                  } } }
             
         )

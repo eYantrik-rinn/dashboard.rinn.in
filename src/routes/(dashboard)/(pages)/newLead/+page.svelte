@@ -1,21 +1,101 @@
 <script>
-   
     export let form;
     let other = false;
     function handleBank(event) {
         if (document.getElementById("preferredBank")?.value === "other") {
             other = true;
-        }else{
-            other = false
+        } else {
+            other = false;
         }
     }
+
+    let selection = 'Choose Loan Type';
+    let bt = false;
+    $:{ if (selection == "Balance Transfer"){
+        bt = true;
+     }
+    else{
+        bt = false;
+    }}
+    
+     
+    // var a = [
+    //     "",
+    //     "one ",
+    //     "two ",
+    //     "three ",
+    //     "four ",
+    //     "five ",
+    //     "six ",
+    //     "seven ",
+    //     "eight ",
+    //     "nine ",
+    //     "ten ",
+    //     "eleven ",
+    //     "twelve ",
+    //     "thirteen ",
+    //     "fourteen ",
+    //     "fifteen ",
+    //     "sixteen ",
+    //     "seventeen ",
+    //     "eighteen ",
+    //     "nineteen ",
+    // ];
+    // var b = [
+    //     "",
+    //     "",
+    //     "twenty",
+    //     "thirty",
+    //     "forty",
+    //     "fifty",
+    //     "sixty",
+    //     "seventy",
+    //     "eighty",
+    //     "ninety",
+    // ];
+
+    // function inWords(num) {
+    //     if ((num = num.toString()).length > 9) return "overflow";
+    //     n = ("000000000" + num)
+    //         .substr(-9)
+    //         .match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+    //     if (!n) return;
+    //     var str = "";
+    //     str +=
+    //         n[1] != 0
+    //             ? (a[Number(n[1])] || b[n[1][0]] + " " + a[n[1][1]]) + "crore "
+    //             : "";
+    //     str +=
+    //         n[2] != 0
+    //             ? (a[Number(n[2])] || b[n[2][0]] + " " + a[n[2][1]]) + "lakh "
+    //             : "";
+    //     str +=
+    //         n[3] != 0
+    //             ? (a[Number(n[3])] || b[n[3][0]] + " " + a[n[3][1]]) +
+    //               "thousand "
+    //             : "";
+    //     str +=
+    //         n[4] != 0
+    //             ? (a[Number(n[4])] || b[n[4][0]] + " " + a[n[4][1]]) +
+    //               "hundred "
+    //             : "";
+    //     str +=
+    //         n[5] != 0
+    //             ? (str != "" ? "and " : "") +
+    //               (a[Number(n[5])] || b[n[5][0]] + " " + a[n[5][1]]) +
+    //               "only "
+    //             : "";
+    //     return str;
+    // }
+    // let price = 14340;
+    // $: console.log(new Intl.NumberFormat("en-IN").format(price));
 </script>
 
 <div class="lg:ml-64 flex items-center justify-center py-24 m-auto">
     <!-- Author: FormBold Team -->
     <div class="mx-auto w-full max-w-[550px] bg-white border rounded-lg p-5">
         <h1 class="font-bold font-serif text-3xl text-center my-10">
-           Add New Lead
+            Add New Lead
         </h1>
         <form method="post">
             <div class="mb-5">
@@ -59,7 +139,7 @@
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Enter Leads email"
+                    placeholder="Enter Leads Email"
                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 />
             </div>
@@ -70,6 +150,7 @@
                     >Loan Type</label
                 >
                 <select
+                    bind:value={selection}
                     name="LoanType"
                     id="LoanType"
                     class=" appearance-none w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -80,6 +161,25 @@
                     <option value="Personal Loan">Personal Loan</option>
                 </select>
             </div>
+            {#if bt}
+                
+           
+            <div class="mb-5">
+                <label
+                    for="fromBank"
+                    class="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                   From Bank
+                </label>
+                <input
+                    type="text"
+                    name="fromBank"
+                    id="fromBank"
+                    placeholder="Enter Existing Bank Name"
+                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+            </div>
+            {/if}
             <div class="-mx-3 flex flex-wrap">
                 <div class="w-full px-3 sm:w-1/2">
                     <div class="mb-5 relative">
@@ -94,23 +194,26 @@
                             type="number"
                             name="loanAmmount"
                             id="loanAmmount"
+                            data-type="currency"
                             class=" [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                             placeholder="Enter Loan Ammount"
                         />
-                        <div class="absolute inset-y-0 top-9 left-1 
-                            flex items-center  
-                            pointer-events-none"> 
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="gray"
-                            ><path
-                                d="M17 6V4H6v2h3.5c1.302 0 2.401.838 2.815 2H6v2h6.315A2.994 2.994 0 0 1 9.5 12H6v2.414L11.586 20h2.828l-6-6H9.5a5.007 5.007 0 0 0 4.898-4H17V8h-2.602a4.933 4.933 0 0 0-.924-2H17z"
-                            ></path></svg
+                        <div
+                            class="absolute inset-y-0 top-9 left-1
+                            flex items-center
+                            pointer-events-none"
                         >
-                </div> 
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="gray"
+                                ><path
+                                    d="M17 6V4H6v2h3.5c1.302 0 2.401.838 2.815 2H6v2h6.315A2.994 2.994 0 0 1 9.5 12H6v2.414L11.586 20h2.828l-6-6H9.5a5.007 5.007 0 0 0 4.898-4H17V8h-2.602a4.933 4.933 0 0 0-.924-2H17z"
+                                ></path></svg
+                            >
+                        </div>
                     </div>
                 </div>
                 <div class="w-full px-3 sm:w-1/2">
@@ -138,6 +241,7 @@
                     <div class="mb-5"></div>
                 </div>
             </div>
+            
             {#if other}
                 <div class="mb-5">
                     <label
@@ -162,7 +266,6 @@
                     Submit Lead
                 </button>
             </div>
-             
         </form>
     </div>
 </div>
@@ -223,5 +326,4 @@
 {/if}
 
 <style>
-   
 </style>

@@ -12,7 +12,6 @@
 		const res = await fetch("https://dummyjson.com/posts");
 		const data = await res.json();
 		card = await data.posts[Math.floor(Math.random() * 10)];
-		console.log(card);
 	});
 	console.log();
 </script>
