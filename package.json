@@ -29,6 +29,7 @@
 		"boxicons": "^2.1.4",
 		"flowbite-svelte": "^0.44.20",
 		"flowbite-svelte-icons": "^0.4.5",
+		"less": "^4.2.0",
 		"mongodb": "^6.3.0",
 		"sass": "^1.69.5",
 		"svrollbar": "^0.12.0",

@@ -5,7 +5,9 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			user: {
-				name: string
+				id: string
+				name: string,
+				email:string,
 				role: string
 			}
 		}

@@ -1,5 +1,5 @@
 <script>
-
+  export let data;
     import { page } from "$app/stores";
 
 </script>
@@ -13,9 +13,9 @@
 </svelte:head>
 
 <nav
-    class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 z-50 w-full bg-gradient-to-r from-[#ebf4f5] to-[#b5c6e0] border-b-2 border-gray-200 dark:bg-gray-800 dark:border-gray-700"
 >
-    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="px-3 py-5 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
                 <button
@@ -52,16 +52,12 @@
                     <div>
                         <button
                             type="button"
-                            class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            class="flex text-sm border p-2 rounded-xl focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600"
                             aria-expanded="false"
                             data-dropdown-toggle="dropdown-user"
                         >
                             <span class="sr-only">Open user menu</span>
-                            <img
-                                class="w-8 h-8 rounded-full"
-                                src="/images/profile.jpg"
-                                alt="user"
-                            />
+                           <p>User-ID: {$page.data.user.id.substring(0, 5)}<i class='bx bx-chevron-down'></i></p>
                         </button>
                     </div>
                     <div
@@ -73,13 +69,13 @@
                                 class="text-sm text-gray-900 dark:text-white"
                                 role="none"
                             >
-                                Anshul Singh
+                                {$page.data.user.name}
                             </p>
                             <p
                                 class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
                                 role="none"
                             >
-                                anshul@gamil.com
+                                {$page.data.user.email}
                             </p>
                         </div>
                         <ul class="py-1" role="none">
@@ -119,10 +115,10 @@
 
 <aside
     id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r-2 border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidebar"
 >
-    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+    <div class="bg-gradient-to-b from-[#ebf4f5] to-[#b5c6e0] h-full px-3 pt-10 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
             <li class="nav_link submenu_item">
                 <a href="/" class="nav_link submenu_item">
@@ -141,9 +137,9 @@
             <!-- duplicate these li tag if you want to add or remove navlink only -->
             <!-- Start -->
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/appliedLoans" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bxs-magic-wand"></i>
+                      <i class='bx bx-wallet-alt'></i>
                     </span>
                     <span class="navlink">Applied Loan</span>
                 </a>
@@ -151,36 +147,36 @@
             <!-- End -->
 
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/loanStatus" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-loader-circle"></i>
+                      <i class='bx bx-history' ></i>
                     </span>
                     <span class="navlink">Loan Status</span>
                 </a>
             </li>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/newLoan" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-filter"></i>
+                      <i class='bx bx-rupee' ></i>
                     </span>
-                    <span class="navlink">Loan History</span>
+                    <span class="navlink">New Loan</span>
                 </a>
             </li>
         </ul>
         <ul class="menu_items">
             <div class="menu_title menu_setting"></div>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/profile" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-flag"></i>
+                        <i class='bx bxs-user-account'></i>
                     </span>
                     <span class="navlink">Profile</span>
                 </a>
             </li>
             <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
+                <a href="/profileSetting" class="nav_link">
                     <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
+                        <i class="bx bx-cog "></i>
                     </span>
                     <span class="navlink">Profile Setting</span>
                 </a>
@@ -189,46 +185,33 @@
             
         </ul>
         <ul class="menu_items">
-            <div class="menu_title menu_company"></div>
-            <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
-                    <span class="navlink_icon">
-                        <i class="bx bx-flag"></i>
-                    </span>
-                    <span class="navlink">Blog</span>
-                </a>
-            </li>
-            <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
-                    <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
-                    </span>
-                    <span class="navlink">FAQ</span>
-                </a>
-            </li>
-            <li class="nav_link submenu_item">
-                <a href="#" class="nav_link">
-                    <span class="navlink_icon">
-                        <i class="bx bx-medal"></i>
-                    </span>
-                    <span class="navlink">Terms & Conditions</span>
-                </a>
-            </li>
-            {#if $page.data.user.role === 'admin'}
-              
-            
-            <li class="nav_link submenu_item">
-                <a href="/BKregistration" class="nav_link">
-                    <span class="navlink_icon">
-                      <i class='bx bx-user-plus'></i>
-                       
-                    </span>
-                    <span class="navlink">Broker Registration</span>
-                </a>
-            </li>
-            
-            {/if}
-        </ul>
+          <div class="menu_title menu_company"></div>
+          <li class="nav_link submenu_item">
+              <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                      <i class="bx bx-flag"></i>
+                  </span>
+                  <span class="navlink">Blog</span>
+              </a>
+          </li>
+          <li class="nav_link submenu_item">
+              <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                      <i class='bx bx-question-mark'></i>
+                  </span>
+                  <span class="navlink">FAQ</span>
+              </a>
+          </li>
+          <li class="nav_link submenu_item">
+              <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                      <i class='bx bxs-file'></i>
+                  </span>
+                  <span class="navlink">Terms & Conditions</span>
+              </a>
+          </li>
+         
+      </ul>
     </div>
 </aside>
 <style>

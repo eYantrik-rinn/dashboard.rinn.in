@@ -1,13 +1,13 @@
 <script>
     import { onMount } from "svelte";
 
-    onMount(async () => {
-        const sidebar = document.querySelector("aside");
-        const toggleButton = document.querySelector("#toggleSidebar");
-        toggleButton.addEventListener("click", () => {
-            sidebar.classList.toggle("-translate-x-full");
-        });
-    });
+    // onMount(async () => {
+    //     const sidebar = document.querySelector("aside");
+    //     const toggleButton = document.querySelector("#toggleSidebar");
+    //     toggleButton.addEventListener("click", () => {
+    //         sidebar.classList.toggle("-translate-x-full");
+    //     });
+    // });
 </script>
 
 <body class="bg-gray-100">

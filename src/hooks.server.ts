@@ -18,6 +18,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// if `user` exists set `events.local`
 	if (superuser) {
 		event.locals.user = {
+			id:superuser._id.toString(),
 			name: superuser.username,
 			role: "superUser",
 		}
@@ -29,6 +30,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// if `user` exists set `events.local`
 	if (admin) {
 		event.locals.user = {
+			id:admin._id.toString(),
 			name: admin.username,
 			role: "admin",
 		}
@@ -40,6 +42,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// if `user` exists set `events.local`
 	if (controller) {
 		event.locals.user = {
+			id:controller._id.toString(),
 			name: controller.username,
 			role: "controller",
 		}
@@ -51,6 +54,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// if `user` exists set `events.local`
 	if (broker) {
 		event.locals.user = {
+			id:broker._id.toString(),
 			name: broker.Name,
 			role: "broker",
 		}
@@ -58,11 +62,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const user = await user_data.findOne({
 		userAuthToken: session,
 	});
-
-	// if `user` exists set `events.local`
 	if (user) {
 		event.locals.user = {
-			name: user.username,
+			id:user._id.toString(),
+			name: user.name,
+			email: user.username,
 			role: "user",
 		}
 	}

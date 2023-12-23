@@ -2,7 +2,7 @@ import { broker_data } from '$lib/database/mongo.js';
 
 export const actions = {
     default: async ({ request, locals }) => {
-        const userid = locals.user.name
+        const userid = locals.user.id
         const data = await request.formData()
         const full_name = data.get('name');
         const Mobile = data.get('phone');
@@ -21,8 +21,8 @@ export const actions = {
         }
        
         broker_data.updateOne(
-            { "Name": userid },
-                { $push: { Leads: {
+            {"_id": Object(`${userid}`)},
+                { $push: { Leads: {           
                     status:'new',
                     name:full_name,
                     phone:Mobile,
