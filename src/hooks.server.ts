@@ -19,8 +19,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (superuser) {
 		event.locals.user = {
 			id:superuser._id.toString(),
-			name: superuser.username,
+			name: superuser.name,
+			email: superuser.username,
 			role: "superUser",
+			document:superuser.toString(),
 		}
 	}
 	const admin = await admin_data.findOne({
@@ -31,8 +33,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (admin) {
 		event.locals.user = {
 			id:admin._id.toString(),
-			name: admin.username,
+			name: admin.name,
+			email: admin.username,
 			role: "admin",
+			document:admin.toString(),
 		}
 	}
 	const controller = await controller_data.findOne({
@@ -43,8 +47,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (controller) {
 		event.locals.user = {
 			id:controller._id.toString(),
-			name: controller.username,
+			name: controller.name,
+			email: controller.username,
 			role: "controller",
+			document:controller.toString(),
 		}
 	}
 	const broker = await broker_data.findOne({
@@ -55,8 +61,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (broker) {
 		event.locals.user = {
 			id:broker._id.toString(),
-			name: broker.Name,
+			name: broker.name,
+			email: broker.username,
 			role: "broker",
+			document:JSON.stringify(broker),
 		}
 	}
 	const user = await user_data.findOne({
@@ -68,6 +76,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 			name: user.name,
 			email: user.username,
 			role: "user",
+			document:JSON.stringify(user),
 		}
 	}
 	

@@ -7,8 +7,8 @@
 </script>
 
 {#if $page.data.user.role === "user"}
-    <UserSideBar />
-
+    
+<UserSideBar data/>
     <!-- Page Content -->
     <main class=" lg:ml-64 ">
         <!-- Content -->

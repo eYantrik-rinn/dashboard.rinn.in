@@ -6,7 +6,7 @@
 </script>
 
 <main>
-    {#if $page.data.user}
+    {#if $page.data.user.role === "controller"}
         <ControllerSideBar />
         {:else}
         <Spinner />

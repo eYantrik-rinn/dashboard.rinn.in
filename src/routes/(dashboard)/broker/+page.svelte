@@ -22,7 +22,7 @@
 
 <main>
     {#if $page.data.user}
-        <Topbar />
+        
         <BrokerSidebar />
         <main class="mt-14 lg:ml-64 bg-gray-200">
             <div
